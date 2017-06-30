@@ -8,7 +8,7 @@ module.exports = function (app) {
       var hbsObject = {
         burger: result
       };
-      res.render("index", burger);
+      res.render("index", hbsObject);
     });
   });
 
@@ -24,7 +24,7 @@ module.exports = function (app) {
   app.put("/:id", function (req, res) {
     db.Burger.update(
       // Set Attribute values 
-      { devoure: req.body.devoured },
+      { devoured: req.body.devoured },
       // Where clause / criteria 
       { where: { id: req.params.id } }
     ).then(function () {
